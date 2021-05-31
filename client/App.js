@@ -1,14 +1,15 @@
 // import './App.css';
 import React, { Component } from 'react';
-
 import { BrowserRouter } from 'react-router-dom';
+
+// import store from './redux';
 
 // import Main from './components/MainComponent';
 
-// import { Provider } from 'react-redux';
-// import { ConfigureStore } from './redux/configureStore';
+import { Provider } from 'react-redux';
+import ConfigureStore from './redux';
 
-// const store = ConfigureStore();
+const store = ConfigureStore();
 
 class App extends Component {
   render() {
@@ -16,9 +17,7 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>Test app goes here!</div>
-          {/* <Provider store={store}>
-            <Main/>
-          </Provider> */}
+          <Provider store={store}>{/* <Main /> */}</Provider>
         </BrowserRouter>
       </div>
     );
