@@ -16,7 +16,7 @@ let middleware = [
 ];
 if (window) {
   // We'd like the redux logger to only log messages when it's running in the
-  // browser, and not when we run the tests from within Mocha.
+  // browser, and not when we run the tests from within node
   middleware = [...middleware, createLogger({ collapsed: true })];
 }
 

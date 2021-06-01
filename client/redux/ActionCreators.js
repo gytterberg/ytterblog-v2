@@ -1,37 +1,8 @@
 import * as ActionTypes from './ActionTypes';
 
-// import axios from 'axios';
-
 // post submission ===============================
 
-export const submitPost = (newPost) => (dispatch) => {
-  console.log(
-    'Submit: title: ',
-    newPost.title,
-    ' body: ',
-    newPost.body,
-    ' user: ',
-    newPost.user
-  );
-
-  axios.defaults.xsrfCookieName = 'csrftoken';
-  axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-  axios
-    .post('/api/posts/', newPost, config)
-    .then((post) => dispatch(addPost(newPost)))
-    .then(() => dispatch(fetchPosts()))
-    .catch((err) => {
-      dispatch(postCreationFailed(err.message));
-      console.log(err);
-    });
-};
-
+// action creators
 export const addPost = (post) => ({
   type: ActionTypes.ADD_POST,
   payload: post,
@@ -42,34 +13,34 @@ export const postCreationFailed = (errmess) => ({
   payload: errmess,
 });
 
-// edit ===============================
+// thunk creators
+export const submitPost = (newPost) => {
+  return async (dispatch) => {
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-export const editPost = (post) => (dispatch) => {
-  console.log('Edit post: ', JSON.stringify(post));
-
-  axios.defaults.xsrfCookieName = 'csrftoken';
-  axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-
-  axios
-    .put(
-      '/api/posts/' + post.id + '/',
-      { title: post.title, body: post.body, user: post.user },
-      config
-    )
-    .then((post) => dispatch(postEdited(post)))
-    .then(() => dispatch(fetchPosts()))
-    .catch((err) => {
-      dispatch(postEditFailed(err.message));
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    try {
+      const { data: response } = await axios.post(
+        '/api/posts/',
+        newPost,
+        config
+      );
+      dispatch(addPost(response));
+    } catch (err) {
+      dispatch(postCreationFailed(err.message));
       console.log(err);
-    });
+    }
+  };
 };
 
+// edit ===============================
+
+// action creators
 export const postEdited = (post) => ({
   type: ActionTypes.POST_EDITED,
   payload: post,
@@ -80,21 +51,34 @@ export const postEditFailed = (errmess) => ({
   payload: errmess,
 });
 
-// delete ===============================
+// thunk creators
+export const editPost = (post) => {
+  return async (dispatch) => {
+    console.log('Edit post: ', JSON.stringify(post));
 
-export const deletePost = (postId) => (dispatch) => {
-  // delete the post
-  console.log('Delete: ', postId);
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-  axios.defaults.xsrfCookieName = 'csrftoken';
-  axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-
-  axios
-    .delete('/api/posts/' + postId + '/')
-    .then((post) => dispatch(postDeleted(post)))
-    .then(() => dispatch(fetchPosts()))
-    .catch((errmess) => dispatch(postDeleteFailed(errmess)));
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    try {
+      const { data: response } = await axios.put(
+        '/api/posts/' + post.id + '/',
+        { title: post.title, body: post.body, user: post.user },
+        config
+      );
+      dispatch(postEdited(response));
+    } catch (err) {
+      dispatch(postEditFailed(err.message));
+      console.log(err);
+    }
+  };
 };
+
+// delete ===============================
 
 export const postDeleted = (post) => ({
   type: ActionTypes.POST_DELETED,
@@ -106,22 +90,32 @@ export const postDeleteFailed = (errmess) => ({
   payload: errmess,
 });
 
+// action creators
+
+// thunk creators
+
+export const deletePost = (postId) => {
+  return async (dispatch) => {
+    // delete the post
+    console.log('Delete: ', postId);
+
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+
+    try {
+      const { data: success } = await axios.delete(
+        '/api/posts/' + postId + '/'
+      );
+      dispatch(postDeleted(postId));
+    } catch (err) {
+      dispatch(postDeleteFailed(err.message));
+    }
+  };
+};
+
 // fetch posts ===============================###
 
-export const fetchPosts = () => (dispatch) => {
-  dispatch(postsLoading());
-
-  axios.defaults.xsrfCookieName = 'csrftoken';
-  axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-
-  axios
-    .get('/api/posts/')
-    .then((posts) => dispatch(addPosts(posts)))
-    .catch((err) => {
-      dispatch(postsLoadingFailed(err.message));
-      console.log(err);
-    });
-};
+// action creators
 
 export const postsLoading = () => ({
   type: ActionTypes.POSTS_LOADING,
@@ -136,3 +130,21 @@ export const postsLoadingFailed = (errmess) => ({
   type: ActionTypes.POSTS_LOADING_FAILED,
   payload: errmess,
 });
+
+// thunk creators
+export const fetchPosts = () => {
+  return async (dispatch) => {
+    dispatch(postsLoading());
+
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+
+    try {
+      const { data: posts } = await axios.get('/api/posts/');
+      dispatch(addPosts(posts));
+    } catch (err) {
+      dispatch(postsLoadingFailed(err.message));
+      console.log(err);
+    }
+  };
+};

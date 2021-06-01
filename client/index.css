@@ -1,0 +1,86 @@
+/* .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+.jumbotron {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: 0 auto;
+  background: none;
+  color: floralwhite;
+}
+
+.navbar-dark {
+  background-color: #142f87;
+}
+
+.header {
+  background-color: #1a3db0;
+  margin: 0px auto;
+  padding: 20px 0px 20px 0px;
+}
+
+.header-text {
+  color: #dbdbdb;
+  text-align: center;
+}
+
+.footer {
+  background-color: #1a3db0;
+  margin-top: 50px;
+  padding: 20px 0px 20px 0px;
+  position: relative;
+}
+
+.footer-text {
+  color: #dbdbdb;
+  text-align: center;
+}
+
+.avatar {
+  height: 100;
+  width: 100;
+  margin: 20px;
+}
+
+.postcard {
+  margin: 50px 0px 50px 0px;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+  column-gap: 20px;
+}
+
+dt {
+  grid-column-start: 1;
+}
+
+dd {
+  grid-column-start: 2;
+}
+
+.card {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
