@@ -2,8 +2,6 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const chalk = require('chalk');
-
 const chaiExclude = require('chai-exclude');
 chai.use(chaiExclude);
 
@@ -12,10 +10,10 @@ chai.use(deepEqualInAnyOrder);
 
 /// see https://www.chaijs.com/plugins/chai-exclude/
 
-const sinon = require('sinon');
+// const sinon = require('sinon');
 const request = require('supertest');
 
-const Post = require('../../server/db/post');
+// const Post = require('../../server/db/post');
 const app = require('../../server');
 const seed = require('../../script/seed');
 
