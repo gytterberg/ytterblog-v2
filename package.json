@@ -4,7 +4,8 @@
   "description": "A simple blog app and demonstration project.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "testtest": "NODE_ENV='test' mocha ./tests/api/posts.spec.js --watch --require @babel/polyfill --require @babel/register",
+    "test": "NODE_ENV='test' mocha ./tests --recursive --watch --require @babel/polyfill --require @babel/register",
     "start": "node server",
     "start-dev": "npm run build-watch & npm run start-server",
     "start-server": "nodemon main.js -e html,js,css --ignore public",
@@ -14,17 +15,26 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.14.3",
+    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "@babel/register": "^7.13.16",
     "babel-loader": "^8.2.2",
+    "chai-exclude": "^2.0.3",
     "css-loader": "^5.2.6",
+    "deep-equal-in-any-order": "^1.1.7",
     "style-loader": "^2.0.0",
+    "supertest": "^4.0.2",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0"
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "axios-mock-adapter": "^1.19.0",
+    "chai": "^4.3.4",
+    "chalk": "^2.4.2",
     "express": "^4.17.1",
+    "mocha": "^8.4.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.7",
     "pg": "^8.6.0",
@@ -37,6 +47,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "sinon": "^11.1.1"
   }
 }

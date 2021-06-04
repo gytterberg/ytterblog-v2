@@ -8,7 +8,9 @@ const app = express();
 // logging middleware
 // Only use logging middleware when not running tests
 // const debug = process.env.NODE_ENV === 'test';
-app.use(morgan('dev'));
+if (process.env.NODE_ENV !== 'test') {
+  app.use(morgan('dev'));
+}
 
 // body parsing middleware
 app.use(express.json());

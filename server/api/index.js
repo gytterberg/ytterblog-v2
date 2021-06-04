@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 // routes already mounted on /api
 
-router.use('/posts', require('./post'));
+router.use('/posts', require('./posts'));
 
 // If someone makes a request that starts with `/api`,
 // but you DON'T have a corresponding router, this piece of
