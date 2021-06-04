@@ -50,5 +50,8 @@
     "redux-thunk": "^2.3.0",
     "sequelize": "^6.6.2",
     "sinon": "^11.1.1"
+  },
+  "optionalDependencies": {
+    "fsevents": "2.1.2"
   }
 }
