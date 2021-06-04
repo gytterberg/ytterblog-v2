@@ -6,7 +6,7 @@
   "scripts": {
     "testtest": "NODE_ENV='test' mocha ./tests/api/posts.spec.js --watch --require @babel/polyfill --require @babel/register",
     "test": "NODE_ENV='test' mocha ./tests --recursive --watch --require @babel/polyfill --require @babel/register",
-    "start": "node main.js",
+    "start": "webpack & node main.js",
     "start-dev": "npm run build-watch & npm run start-server",
     "start-server": "nodemon main.js -e html,js,css --ignore public",
     "build-watch": "webpack -w --mode=development"
