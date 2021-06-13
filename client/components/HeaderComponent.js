@@ -33,25 +33,28 @@ const useStyles = (theme) => ({
   header: {
     position: 'sticky',
   },
+  palette: {
+    grey: '#eeeeee',
+    dark: '#001970',
+  },
+  indicator: {
+    backgroundColor: '#001970',
+  },
 });
 
 const Header = (props) => {
   const { classes } = props;
-  const theme = useTheme();
-  console.log(theme);
+  // const theme = useTheme();
   const allTabs = { home: '/home', blog: '/blog', about: '/about' };
-  console.log('Header props:');
-  console.log(props);
   return (
     <React.Fragment>
       <AppBar className={classes.header}>
         <Toolbar>
           <Tabs
             value={location.pathname}
-            // onChange={handleChange}
             indicatorColor="secondary"
-            textColor={theme.palette.grey[200]}
             centered
+            classes={{ indicator: classes.indicator }}
           >
             <Tab
               label="Home"
@@ -73,7 +76,6 @@ const Header = (props) => {
               disabled
             />
           </Tabs>
-          {/* </Paper> */}
         </Toolbar>
       </AppBar>
     </React.Fragment>

@@ -36,8 +36,8 @@ const AllPosts = (props) => {
 
   const renderPost = (post) => {
     return (
-      <Box m={5}>
-        <Card elevation={3} key={post.id}>
+      <Box m={5} key={post.id}>
+        <Card elevation={3}>
           <CardActionArea>
             <CardHeader title={post.title} />
 
