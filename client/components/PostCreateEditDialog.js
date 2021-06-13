@@ -119,7 +119,7 @@ const PostDeleteDialog = (props) => {
   return (
     <>
       <DisplayButton />
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
         <DialogTitle disableTypography className={classes.modalTitle}>
           <Grid container justify="space-between">
             <Grid item>
@@ -148,6 +148,7 @@ const PostDeleteDialog = (props) => {
                   variant="filled"
                   value={post.title}
                   onChange={textFieldChange}
+                  fullWidth
                 />
               </Grid>
               <Grid item>
@@ -159,6 +160,7 @@ const PostDeleteDialog = (props) => {
                   rows={6}
                   value={post.body}
                   onChange={textFieldChange}
+                  fullWidth
                 />
               </Grid>
             </Grid>

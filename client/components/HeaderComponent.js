@@ -44,7 +44,6 @@ const useStyles = (theme) => ({
 
 const Header = (props) => {
   const { classes } = props;
-  // const theme = useTheme();
   const allTabs = { home: '/home', blog: '/blog', about: '/about' };
   return (
     <React.Fragment>
