@@ -50,6 +50,7 @@ const PostDeleteDialog = (props) => {
       user: 'gy',
     };
   } else {
+    console.log('We are an add post');
     initialPostState = { title: '', body: '', user: 'gy' };
   }
   const [post, setPost] = useState(initialPostState);
@@ -69,11 +70,13 @@ const PostDeleteDialog = (props) => {
   const handleSubmit = () => {
     props.submitPost(post);
     setOpen(false);
+    setPost({ title: '', body: '', user: 'gy' });
   };
 
   const handleEdit = () => {
     props.editPost(post);
     setOpen(false);
+    setPost({ title: '', body: '', user: 'gy' });
   };
 
   const textFieldChange = (event) => {
@@ -112,6 +115,7 @@ const PostDeleteDialog = (props) => {
     }
   };
 
+  console.log(props);
   return (
     <>
       <DisplayButton />

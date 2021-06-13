@@ -22435,6 +22435,7 @@ const PostDeleteDialog = props => {
       user: 'gy'
     };
   } else {
+    console.log('We are an add post');
     initialPostState = {
       title: '',
       body: '',
@@ -22458,11 +22459,21 @@ const PostDeleteDialog = props => {
   const handleSubmit = () => {
     props.submitPost(post);
     setOpen(false);
+    setPost({
+      title: '',
+      body: '',
+      user: 'gy'
+    });
   };
 
   const handleEdit = () => {
     props.editPost(post);
     setOpen(false);
+    setPost({
+      title: '',
+      body: '',
+      user: 'gy'
+    });
   };
 
   const textFieldChange = event => {
@@ -22501,6 +22512,7 @@ const PostDeleteDialog = props => {
     }
   };
 
+  console.log(props);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(DisplayButton, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
     open: open,
     onClose: handleClose
