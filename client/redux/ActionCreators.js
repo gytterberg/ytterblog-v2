@@ -1,13 +1,71 @@
 import * as ActionTypes from './ActionTypes';
+import axios from 'axios';
 
-// post submission ===============================
+// fetch posts ===============================###
 
 // action creators
+
+export const postsLoading = () => ({
+  type: ActionTypes.POSTS_LOADING,
+});
+
+export const addPosts = (posts) => ({
+  type: ActionTypes.ADD_POSTS,
+  payload: posts,
+});
+
+export const postsLoadingFailed = (errmess) => ({
+  type: ActionTypes.POSTS_LOADING_FAILED,
+  payload: errmess,
+});
+
 export const addPost = (post) => ({
   type: ActionTypes.ADD_POST,
   payload: post,
 });
 
+export const insertNewPost = (post) => ({
+  type: ActionTypes.NEW_POST,
+  payload: post,
+});
+
+// thunk creators
+export const fetchPosts = (/*pageSize, pageNum*/) => {
+  // console.log('In fetchposts');
+  const url = `/api/posts${
+    typeof pageSize !== 'undefined' ? '?pageSize=' + pageSize : ''
+  }${typeof pageNum !== 'undefined' ? '&pageNum=' + pageNum : ''}`;
+
+  return async (dispatch) => {
+    dispatch(postsLoading());
+
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+
+    try {
+      const { posts } = (await axios.get(url)).data;
+      dispatch(addPosts(posts));
+    } catch (err) {
+      dispatch(postsLoadingFailed(err.message));
+      console.log(err);
+    }
+  };
+};
+
+export const fetchPost = (postId) => {
+  return async (dispatch) => {
+    try {
+      const { data: post } = await axios.get(`/api/posts/${postId}`);
+      dispatch(addPost(post));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+// post submission ===============================
+
+// action creators
 export const postCreationFailed = (errmess) => ({
   type: ActionTypes.POST_CREATION_FAILED,
   payload: errmess,
@@ -30,7 +88,7 @@ export const submitPost = (newPost) => {
         newPost,
         config
       );
-      dispatch(addPost(response));
+      dispatch(insertNewPost(response));
     } catch (err) {
       dispatch(postCreationFailed(err.message));
       console.log(err);
@@ -70,6 +128,8 @@ export const editPost = (post) => {
         { title: post.title, body: post.body, user: post.user },
         config
       );
+      console.log('##########################');
+      console.log(response);
       dispatch(postEdited(response));
     } catch (err) {
       dispatch(postEditFailed(err.message));
@@ -109,42 +169,6 @@ export const deletePost = (postId) => {
       dispatch(postDeleted(postId));
     } catch (err) {
       dispatch(postDeleteFailed(err.message));
-    }
-  };
-};
-
-// fetch posts ===============================###
-
-// action creators
-
-export const postsLoading = () => ({
-  type: ActionTypes.POSTS_LOADING,
-});
-
-export const addPosts = (posts) => ({
-  type: ActionTypes.ADD_POSTS,
-  payload: posts,
-});
-
-export const postsLoadingFailed = (errmess) => ({
-  type: ActionTypes.POSTS_LOADING_FAILED,
-  payload: errmess,
-});
-
-// thunk creators
-export const fetchPosts = () => {
-  return async (dispatch) => {
-    dispatch(postsLoading());
-
-    axios.defaults.xsrfCookieName = 'csrftoken';
-    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-
-    try {
-      const { data: posts } = await axios.get('/api/posts/');
-      dispatch(addPosts(posts));
-    } catch (err) {
-      dispatch(postsLoadingFailed(err.message));
-      console.log(err);
     }
   };
 };

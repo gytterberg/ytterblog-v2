@@ -4,7 +4,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
 import axios from 'axios';
 
-import { Posts } from './Posts';
+import PostsReducer from './PostsReducer';
+import PostsStatusReducer from './PostsStatusReducer';
+import PostReducer from './PostReducer';
 
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
@@ -21,7 +23,9 @@ if (window) {
 }
 
 const appReducer = combineReducers({
-  posts: Posts,
+  posts: PostsReducer,
+  postsStatus: PostsStatusReducer,
+  post: PostReducer,
 });
 
 /** We wrap the entire redux store in a root reducer with a special

@@ -5,15 +5,16 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 // before below so below takes precedent
 // import 'bootstrap/dist/css/bootstrap.min.css';
-
+import CssBaseline from '@material-ui/core/CssBaseline';
 // import 'font-awesome/css/font-awesome.css';
 // import 'bootstrap-social/bootstrap-social.css';
 import './index.css';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
+    <CssBaseline />
     <App />
-  </React.StrictMode>,
+  </>,
   document.getElementById('app')
 );
 

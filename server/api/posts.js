@@ -24,6 +24,7 @@ router.get('/', async (req, res, next) => {
       raw: true,
       ...limit,
       ...offset,
+      order: [['createdAt', 'DESC']],
     });
 
     if (result.count > 0 && result.rows.length === 0) {
@@ -50,10 +51,12 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   // find a single post and return it
   try {
-    const result = await Post.findByPk(req.params.id);
+    const result = await Post.findByPk(req.params.id, { raw: true });
     if (result === null) {
-      throw new Error('User not found');
+      throw new Error('Post not found');
     }
+    console.log('In api, result: ');
+    console.log(result);
     res.json(result);
   } catch (error) {
     // console.log(`Error fetching post ${req.params.id}`);
@@ -79,13 +82,11 @@ router.post('/', async (req, res, next) => {
 // matches PUT requests to /api/posts/:postId
 router.put('/:id', async (req, res, next) => {
   try {
-    const result = await Post.update(req.body, {
-      where: { id: Number(req.params.id) },
-    });
-    if (result[0] === 0) {
-      throw new Error('Invalid update request');
-    }
-    res.send('Updated successfully');
+    const post = await Post.findByPk(req.params.id);
+    post.title = req.body.title;
+    post.body = req.body.body;
+    const response = await post.save();
+    res.send(response.dataValues);
   } catch (err) {
     err.status = 400;
     next(err);

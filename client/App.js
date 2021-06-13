@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-// import Main from './components/MainComponent';
+import Main from './components/MainComponent';
 import ConfigureStore from './redux';
 
 const store = ConfigureStore();
@@ -13,8 +13,9 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <div>Test app goes here!</div>
-          <Provider store={store}>{/* <Main /> */}</Provider>
+          <Provider store={store}>
+            <Main />
+          </Provider>
         </BrowserRouter>
       </div>
     );
