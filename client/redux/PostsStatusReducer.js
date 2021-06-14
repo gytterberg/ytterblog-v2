@@ -23,6 +23,7 @@ const PostsStatusReducer = (
 
     case ActionTypes.SET_POSTS:
       // load posts into state from DB
+      console.log('action.payload: ', action.payload);
       return {
         ...state,
         loading: false,

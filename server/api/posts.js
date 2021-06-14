@@ -13,7 +13,7 @@ router.get('/', async (req, res, next) => {
   }
   if (typeof req.query.pageNum !== 'undefined') {
     offset = {
-      offset: Number(req.query.pageNum) * (Number(req.query.pageSize) - 1),
+      offset: Number(req.query.pageNum - 1) * Number(req.query.pageSize),
     };
   }
 
@@ -60,7 +60,6 @@ router.get('/:id', async (req, res, next) => {
     console.log(result);
     res.json(result);
   } catch (error) {
-    // console.log(`Error fetching post ${req.params.id}`);
     error.status = 404;
     next(error);
   }

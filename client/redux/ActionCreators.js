@@ -9,9 +9,9 @@ export const postsLoading = () => ({
   type: ActionTypes.POSTS_LOADING,
 });
 
-export const setPosts = (posts) => ({
+export const setPosts = (postData) => ({
   type: ActionTypes.SET_POSTS,
-  payload: posts,
+  payload: postData,
 });
 
 export const postsLoadingSuccess = () => ({
@@ -34,22 +34,17 @@ export const insertNewPost = (post) => ({
 });
 
 // thunk creators
-export const fetchPosts = (/*pageSize, pageNum*/) => {
-  // console.log('In fetchposts');
-  const url = `/api/posts${
-    typeof pageSize !== 'undefined' ? '?pageSize=' + pageSize : ''
-  }${typeof pageNum !== 'undefined' ? '&pageNum=' + pageNum : ''}`;
-
+export const fetchPosts = (pageSize = 'all', pageNum = 1) => {
   return async (dispatch) => {
+    const url = `/api/posts${
+      pageSize !== 'all' ? '?pageSize=' + pageSize : ''
+    }${pageNum !== 1 ? '&pageNum=' + pageNum : ''}`;
     dispatch(postsLoading());
 
     axios.defaults.xsrfCookieName = 'csrftoken';
     axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-
     try {
       const postsData = (await axios.get(url)).data;
-      console.log('#############');
-      console.log(postsData);
       dispatch(setPosts(postsData));
     } catch (err) {
       dispatch(postsLoadingFailed(err.message));

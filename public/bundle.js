@@ -7874,6 +7874,334 @@ if (true) {
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/ListItem/ListItem.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/ListItem/ListItem.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_utils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/utils */ "./node_modules/@material-ui/utils/esm/chainPropTypes.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _ButtonBase__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../ButtonBase */ "./node_modules/@material-ui/core/esm/ButtonBase/ButtonBase.js");
+/* harmony import */ var _utils_isMuiElement__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/isMuiElement */ "./node_modules/@material-ui/core/esm/utils/isMuiElement.js");
+/* harmony import */ var _utils_useForkRef__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/useForkRef */ "./node_modules/@material-ui/core/esm/utils/useForkRef.js");
+/* harmony import */ var _List_ListContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../List/ListContext */ "./node_modules/@material-ui/core/esm/List/ListContext.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the (normally root) `component` element. May be wrapped by a `container`. */
+    root: {
+      display: 'flex',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      position: 'relative',
+      textDecoration: 'none',
+      width: '100%',
+      boxSizing: 'border-box',
+      textAlign: 'left',
+      paddingTop: 8,
+      paddingBottom: 8,
+      '&$focusVisible': {
+        backgroundColor: theme.palette.action.selected
+      },
+      '&$selected, &$selected:hover': {
+        backgroundColor: theme.palette.action.selected
+      },
+      '&$disabled': {
+        opacity: 0.5
+      }
+    },
+
+    /* Styles applied to the `container` element if `children` includes `ListItemSecondaryAction`. */
+    container: {
+      position: 'relative'
+    },
+
+    /* Pseudo-class applied to the `component`'s `focusVisibleClassName` prop if `button={true}`. */
+    focusVisible: {},
+
+    /* Styles applied to the `component` element if dense. */
+    dense: {
+      paddingTop: 4,
+      paddingBottom: 4
+    },
+
+    /* Styles applied to the `component` element if `alignItems="flex-start"`. */
+    alignItemsFlexStart: {
+      alignItems: 'flex-start'
+    },
+
+    /* Pseudo-class applied to the inner `component` element if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the inner `component` element if `divider={true}`. */
+    divider: {
+      borderBottom: "1px solid ".concat(theme.palette.divider),
+      backgroundClip: 'padding-box'
+    },
+
+    /* Styles applied to the inner `component` element if `disableGutters={false}`. */
+    gutters: {
+      paddingLeft: 16,
+      paddingRight: 16
+    },
+
+    /* Styles applied to the inner `component` element if `button={true}`. */
+    button: {
+      transition: theme.transitions.create('background-color', {
+        duration: theme.transitions.duration.shortest
+      }),
+      '&:hover': {
+        textDecoration: 'none',
+        backgroundColor: theme.palette.action.hover,
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          backgroundColor: 'transparent'
+        }
+      }
+    },
+
+    /* Styles applied to the `component` element if `children` includes `ListItemSecondaryAction`. */
+    secondaryAction: {
+      // Add some space to avoid collision as `ListItemSecondaryAction`
+      // is absolutely positioned.
+      paddingRight: 48
+    },
+
+    /* Pseudo-class applied to the root element if `selected={true}`. */
+    selected: {}
+  };
+};
+var useEnhancedEffect = typeof window === 'undefined' ? react__WEBPACK_IMPORTED_MODULE_2__.useEffect : react__WEBPACK_IMPORTED_MODULE_2__.useLayoutEffect;
+/**
+ * Uses an additional container component if `ListItemSecondaryAction` is the last child.
+ */
+
+var ListItem = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function ListItem(props, ref) {
+  var _props$alignItems = props.alignItems,
+      alignItems = _props$alignItems === void 0 ? 'center' : _props$alignItems,
+      _props$autoFocus = props.autoFocus,
+      autoFocus = _props$autoFocus === void 0 ? false : _props$autoFocus,
+      _props$button = props.button,
+      button = _props$button === void 0 ? false : _props$button,
+      childrenProp = props.children,
+      classes = props.classes,
+      className = props.className,
+      componentProp = props.component,
+      _props$ContainerCompo = props.ContainerComponent,
+      ContainerComponent = _props$ContainerCompo === void 0 ? 'li' : _props$ContainerCompo,
+      _props$ContainerProps = props.ContainerProps;
+  _props$ContainerProps = _props$ContainerProps === void 0 ? {} : _props$ContainerProps;
+
+  var ContainerClassName = _props$ContainerProps.className,
+      ContainerProps = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__.default)(_props$ContainerProps, ["className"]),
+      _props$dense = props.dense,
+      dense = _props$dense === void 0 ? false : _props$dense,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$disableGutters = props.disableGutters,
+      disableGutters = _props$disableGutters === void 0 ? false : _props$disableGutters,
+      _props$divider = props.divider,
+      divider = _props$divider === void 0 ? false : _props$divider,
+      focusVisibleClassName = props.focusVisibleClassName,
+      _props$selected = props.selected,
+      selected = _props$selected === void 0 ? false : _props$selected,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__.default)(props, ["alignItems", "autoFocus", "button", "children", "classes", "className", "component", "ContainerComponent", "ContainerProps", "dense", "disabled", "disableGutters", "divider", "focusVisibleClassName", "selected"]);
+
+  var context = react__WEBPACK_IMPORTED_MODULE_2__.useContext(_List_ListContext__WEBPACK_IMPORTED_MODULE_6__.default);
+  var childContext = {
+    dense: dense || context.dense || false,
+    alignItems: alignItems
+  };
+  var listItemRef = react__WEBPACK_IMPORTED_MODULE_2__.useRef(null);
+  useEnhancedEffect(function () {
+    if (autoFocus) {
+      if (listItemRef.current) {
+        listItemRef.current.focus();
+      } else if (true) {
+        console.error('Material-UI: Unable to set focus to a ListItem whose component has not been rendered.');
+      }
+    }
+  }, [autoFocus]);
+  var children = react__WEBPACK_IMPORTED_MODULE_2__.Children.toArray(childrenProp);
+  var hasSecondaryAction = children.length && (0,_utils_isMuiElement__WEBPACK_IMPORTED_MODULE_7__.default)(children[children.length - 1], ['ListItemSecondaryAction']);
+  var handleOwnRef = react__WEBPACK_IMPORTED_MODULE_2__.useCallback(function (instance) {
+    // #StrictMode ready
+    listItemRef.current = react_dom__WEBPACK_IMPORTED_MODULE_5__.findDOMNode(instance);
+  }, []);
+  var handleRef = (0,_utils_useForkRef__WEBPACK_IMPORTED_MODULE_8__.default)(handleOwnRef, ref);
+
+  var componentProps = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.root, className, childContext.dense && classes.dense, !disableGutters && classes.gutters, divider && classes.divider, disabled && classes.disabled, button && classes.button, alignItems !== "center" && classes.alignItemsFlexStart, hasSecondaryAction && classes.secondaryAction, selected && classes.selected),
+    disabled: disabled
+  }, other);
+
+  var Component = componentProp || 'li';
+
+  if (button) {
+    componentProps.component = componentProp || 'div';
+    componentProps.focusVisibleClassName = (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.focusVisible, focusVisibleClassName);
+    Component = _ButtonBase__WEBPACK_IMPORTED_MODULE_9__.default;
+  }
+
+  if (hasSecondaryAction) {
+    // Use div by default.
+    Component = !componentProps.component && !componentProp ? 'div' : Component; // Avoid nesting of li > li.
+
+    if (ContainerComponent === 'li') {
+      if (Component === 'li') {
+        Component = 'div';
+      } else if (componentProps.component === 'li') {
+        componentProps.component = 'div';
+      }
+    }
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_List_ListContext__WEBPACK_IMPORTED_MODULE_6__.default.Provider, {
+      value: childContext
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ContainerComponent, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+      className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.container, ContainerClassName),
+      ref: handleRef
+    }, ContainerProps), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(Component, componentProps, children), children.pop()));
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_List_ListContext__WEBPACK_IMPORTED_MODULE_6__.default.Provider, {
+    value: childContext
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(Component, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    ref: handleRef
+  }, componentProps), children));
+});
+ true ? ListItem.propTypes = {
+  /**
+   * Defines the `align-items` style property.
+   */
+  alignItems: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['flex-start', 'center']),
+
+  /**
+   * If `true`, the list item will be focused during the first mount.
+   * Focus will also be triggered if the value changes from false to true.
+   */
+  autoFocus: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * If `true`, the list item will be a button (using `ButtonBase`). Props intended
+   * for `ButtonBase` can then be applied to `ListItem`.
+   */
+  button: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * The content of the component. If a `ListItemSecondaryAction` is used it must
+   * be the last child.
+   */
+  children: (0,_material_ui_utils__WEBPACK_IMPORTED_MODULE_10__.default)((prop_types__WEBPACK_IMPORTED_MODULE_3___default().node), function (props) {
+    var children = react__WEBPACK_IMPORTED_MODULE_2__.Children.toArray(props.children); // React.Children.toArray(props.children).findLastIndex(isListItemSecondaryAction)
+
+    var secondaryActionIndex = -1;
+
+    for (var i = children.length - 1; i >= 0; i -= 1) {
+      var child = children[i];
+
+      if ((0,_utils_isMuiElement__WEBPACK_IMPORTED_MODULE_7__.default)(child, ['ListItemSecondaryAction'])) {
+        secondaryActionIndex = i;
+        break;
+      }
+    } //  is ListItemSecondaryAction the last child of ListItem
+
+
+    if (secondaryActionIndex !== -1 && secondaryActionIndex !== children.length - 1) {
+      return new Error('Material-UI: You used an element after ListItemSecondaryAction. ' + 'For ListItem to detect that it has a secondary action ' + 'you must pass it as the last child to ListItem.');
+    }
+
+    return null;
+  }),
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object.isRequired),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   * By default, it's a `li` when `button` is `false` and a `div` when `button` is `true`.
+   */
+  component: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().elementType),
+
+  /**
+   * The container component used when a `ListItemSecondaryAction` is the last child.
+   */
+  ContainerComponent: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().elementType),
+
+  /**
+   * Props applied to the container component if used.
+   */
+  ContainerProps: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object),
+
+  /**
+   * If `true`, compact vertical padding designed for keyboard and mouse input will be used.
+   */
+  dense: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * If `true`, the list item will be disabled.
+   */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * If `true`, the left and right padding is removed.
+   */
+  disableGutters: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * If `true`, a 1px light border is added to the bottom of the list item.
+   */
+  divider: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * @ignore
+   */
+  focusVisibleClassName: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+
+  /**
+   * Use to apply selected styling.
+   */
+  selected: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_11__.default)(styles, {
+  name: 'MuiListItem'
+})(ListItem));
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/Menu/Menu.js":
 /*!*********************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Menu/Menu.js ***!
@@ -8170,6 +8498,161 @@ var Menu = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function M
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_12__.default)(styles, {
   name: 'MuiMenu'
 })(Menu));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/MenuItem/MenuItem.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/MenuItem/MenuItem.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _ListItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ListItem */ "./node_modules/@material-ui/core/esm/ListItem/ListItem.js");
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__.default)({}, theme.typography.body1, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__.default)({
+      minHeight: 48,
+      paddingTop: 6,
+      paddingBottom: 6,
+      boxSizing: 'border-box',
+      width: 'auto',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap'
+    }, theme.breakpoints.up('sm'), {
+      minHeight: 'auto'
+    })),
+    // TODO v5: remove
+
+    /* Styles applied to the root element if `disableGutters={false}`. */
+    gutters: {},
+
+    /* Styles applied to the root element if `selected={true}`. */
+    selected: {},
+
+    /* Styles applied to the root element if dense. */
+    dense: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__.default)({}, theme.typography.body2, {
+      minHeight: 'auto'
+    })
+  };
+};
+var MenuItem = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.forwardRef(function MenuItem(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      component = _props$component === void 0 ? 'li' : _props$component,
+      _props$disableGutters = props.disableGutters,
+      disableGutters = _props$disableGutters === void 0 ? false : _props$disableGutters,
+      ListItemClasses = props.ListItemClasses,
+      _props$role = props.role,
+      role = _props$role === void 0 ? 'menuitem' : _props$role,
+      selected = props.selected,
+      tabIndexProp = props.tabIndex,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__.default)(props, ["classes", "className", "component", "disableGutters", "ListItemClasses", "role", "selected", "tabIndex"]);
+
+  var tabIndex;
+
+  if (!props.disabled) {
+    tabIndex = tabIndexProp !== undefined ? tabIndexProp : -1;
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ListItem__WEBPACK_IMPORTED_MODULE_6__.default, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__.default)({
+    button: true,
+    role: role,
+    tabIndex: tabIndex,
+    component: component,
+    selected: selected,
+    disableGutters: disableGutters,
+    classes: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__.default)({
+      dense: classes.dense
+    }, ListItemClasses),
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_5__.default)(classes.root, className, selected && classes.selected, !disableGutters && classes.gutters),
+    ref: ref
+  }, other));
+});
+ true ? MenuItem.propTypes = {
+  /**
+   * Menu item contents.
+   */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().node),
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().object.isRequired),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().string),
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().elementType),
+
+  /**
+   * If `true`, compact vertical padding designed for keyboard and mouse input will be used.
+   */
+  dense: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
+
+  /**
+   * @ignore
+   */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
+
+  /**
+   * If `true`, the left and right padding is removed.
+   */
+  disableGutters: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
+
+  /**
+   * `classes` prop applied to the [`ListItem`](/api/list-item/) element.
+   */
+  ListItemClasses: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().object),
+
+  /**
+   * @ignore
+   */
+  role: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().string),
+
+  /**
+   * @ignore
+   */
+  selected: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
+
+  /**
+   * @ignore
+   */
+  tabIndex: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().number)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_7__.default)(styles, {
+  name: 'MuiMenuItem'
+})(MenuItem));
 
 /***/ }),
 
@@ -21986,16 +22469,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux_ActionCreators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/ActionCreators */ "./client/redux/ActionCreators.js");
 /* harmony import */ var _PostCreateEditDialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PostCreateEditDialog */ "./client/components/PostCreateEditDialog.js");
 /* harmony import */ var _Loading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Loading */ "./client/components/Loading.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Card/Card.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/CardActionArea/CardActionArea.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/CardHeader/CardHeader.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/CardContent/CardContent.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/CardActions/CardActions.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Link/Link.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Container/Container.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/FormControl/FormControl.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Select/Select.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/MenuItem/MenuItem.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/FormHelperText/FormHelperText.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Card/Card.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/CardActionArea/CardActionArea.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/CardHeader/CardHeader.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/CardContent/CardContent.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/CardActions/CardActions.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Link/Link.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Container/Container.js");
 
 
 
@@ -22011,18 +22499,83 @@ const AllPosts = props => {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     props.fetchPosts();
   }, []);
+  const [pageSize, setPageSize] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(10);
+  const [pageNum, setPageNum] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1); // set page size when drop down selection is changed
+
+  const handleSelectChange = event => {
+    setPageSize(event.target.value);
+  }; // set page number when next/prev is clicked
+
+
+  const handlePrevNext = event => {
+    if (event.target.outerText === 'PREVIOUS POSTS') {
+      setPageNum(pageNum - 1);
+    } else if (event.target.outerText === 'NEXT POSTS') {
+      setPageNum(pageNum + 1);
+    }
+  }; // useEffect to monitor pageSize, pageNum, refetch when changed
+
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    props.fetchPosts(pageSize, pageNum);
+  }, [pageSize, pageNum]);
+
+  const renderPostsPerPage = () => {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default // labelId="demo-simple-select-placeholder-label-label"
+    // id="demo-simple-select-placeholder-label"
+    , {
+      value: pageSize,
+      onChange: handleSelectChange,
+      displayEmpty: true // className={classes.selectEmpty}
+
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
+      value: "all"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("em", null, "All")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
+      value: 10
+    }, "10"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
+      value: 20
+    }, "20")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, null, "Posts per page"));
+  };
+
+  const renderPageButtons = () => {
+    // draw prev and next page buttons if we're not looking at all posts
+    if (pageSize === 'all') {
+      return null;
+    } else {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
+        container: true,
+        justify: "space-between"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
+        item: true
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__.default, {
+        disabled: pageNum === 1,
+        variant: "text",
+        onClick: handlePrevNext,
+        color: "primary",
+        id: "prevButton"
+      }, "Previous posts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
+        item: true
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__.default, {
+        disabled: pageNum === props.postsStatus.pageCount,
+        variant: "text",
+        onClick: handlePrevNext,
+        color: "primary",
+        id: "nextButton"
+      }, "Next posts")));
+    }
+  };
 
   const renderPost = post => {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__.default, {
       m: 5,
       key: post.id
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__.default, {
       elevation: 3
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_13__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__.default, {
       title: post.title
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__.default, {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_15__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__.default, {
       variant: "body1"
-    }, post.body))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__.default, {
+    }, post.body))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_17__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
       container: true,
       justify: "space-between"
     }, 'Posted by ' + post.user + ' --- ' + new Intl.DateTimeFormat('en-US', {
@@ -22032,37 +22585,37 @@ const AllPosts = props => {
       year: 'numeric',
       month: 'short',
       day: '2-digit'
-    }).format(new Date(Date.parse(post.createdAt))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_13__.default, {
+    }).format(new Date(Date.parse(post.createdAt))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_18__.default, {
       to: "#",
       onClick: () => props.history.push("/blog/".concat(post.id))
     }, "link")))));
   };
 
-  console.log(props);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__.default, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_19__.default, {
     maxWidth: "md"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__.default, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
     container: true,
     justify: "space-between"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__.default, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
     item: true
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__.default, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_16__.default, {
     variant: "h6"
-  }, "All posts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__.default, {
+  }, "All posts"), renderPostsPerPage()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
     item: true
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_PostCreateEditDialog__WEBPACK_IMPORTED_MODULE_3__.default, null))), props.posts.map(post => renderPost(post)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_PostCreateEditDialog__WEBPACK_IMPORTED_MODULE_3__.default, null))), props.posts.map(post => renderPost(post)), renderPageButtons());
 };
 
 const mapStateToProps = state => {
   return {
-    posts: state.posts
+    posts: state.posts,
+    postsStatus: state.postsStatus
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchPosts: () => {
-      dispatch((0,_redux_ActionCreators__WEBPACK_IMPORTED_MODULE_2__.fetchPosts)());
+    fetchPosts: (pageSize, pageNum) => {
+      dispatch((0,_redux_ActionCreators__WEBPACK_IMPORTED_MODULE_2__.fetchPosts)(pageSize, pageNum));
     },
     submitPost: newPost => {
       dispatch((0,_redux_ActionCreators__WEBPACK_IMPORTED_MODULE_2__.submitPost)(newPost));
@@ -22936,9 +23489,9 @@ __webpack_require__.r(__webpack_exports__);
 const postsLoading = () => ({
   type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POSTS_LOADING
 });
-const setPosts = posts => ({
+const setPosts = postData => ({
   type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.SET_POSTS,
-  payload: posts
+  payload: postData
 });
 const postsLoadingSuccess = () => ({
   type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POSTS_LOADING_SUCCESS
@@ -22956,20 +23509,17 @@ const insertNewPost = post => ({
   payload: post
 }); // thunk creators
 
-const fetchPosts = () =>
-/*pageSize, pageNum*/
-{
-  // console.log('In fetchposts');
-  const url = "/api/posts".concat(typeof pageSize !== 'undefined' ? '?pageSize=' + pageSize : '').concat(typeof pageNum !== 'undefined' ? '&pageNum=' + pageNum : '');
+const fetchPosts = function fetchPosts() {
+  let pageSize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'all';
+  let pageNum = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
   return async dispatch => {
+    const url = "/api/posts".concat(pageSize !== 'all' ? '?pageSize=' + pageSize : '').concat(pageNum !== 1 ? '&pageNum=' + pageNum : '');
     dispatch(postsLoading());
     (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.xsrfCookieName) = 'csrftoken';
     (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.xsrfHeaderName) = 'X-CSRFToken';
 
     try {
       const postsData = (await axios__WEBPACK_IMPORTED_MODULE_1___default().get(url)).data;
-      console.log('#############');
-      console.log(postsData);
       dispatch(setPosts(postsData));
     } catch (err) {
       dispatch(postsLoadingFailed(err.message));
@@ -23320,6 +23870,7 @@ const PostsStatusReducer = function PostsStatusReducer() {
 
     case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.SET_POSTS:
       // load posts into state from DB
+      console.log('action.payload: ', action.payload);
       return _objectSpread(_objectSpread({}, state), {}, {
         loading: false,
         error: null,

@@ -24,6 +24,10 @@ import {
   Grid,
   Typography,
   Link,
+  FormControl,
+  Select,
+  MenuItem,
+  FormHelperText,
 } from '@material-ui/core';
 
 const AllPosts = (props) => {
@@ -33,6 +37,84 @@ const AllPosts = (props) => {
   useEffect(() => {
     props.fetchPosts();
   }, []);
+
+  const [pageSize, setPageSize] = useState(10);
+  const [pageNum, setPageNum] = useState(1);
+
+  // set page size when drop down selection is changed
+  const handleSelectChange = (event) => {
+    setPageSize(event.target.value);
+  };
+
+  // set page number when next/prev is clicked
+  const handlePrevNext = (event) => {
+    if (event.target.outerText === 'PREVIOUS POSTS') {
+      setPageNum(pageNum - 1);
+    } else if (event.target.outerText === 'NEXT POSTS') {
+      setPageNum(pageNum + 1);
+    }
+  };
+
+  // useEffect to monitor pageSize, pageNum, refetch when changed
+  useEffect(() => {
+    props.fetchPosts(pageSize, pageNum);
+  }, [pageSize, pageNum]);
+
+  const renderPostsPerPage = () => {
+    return (
+      <FormControl>
+        <Select
+          // labelId="demo-simple-select-placeholder-label-label"
+          // id="demo-simple-select-placeholder-label"
+          value={pageSize}
+          onChange={handleSelectChange}
+          displayEmpty
+          // className={classes.selectEmpty}
+        >
+          <MenuItem value="all">
+            <em>All</em>
+          </MenuItem>
+          <MenuItem value={10}>10</MenuItem>
+          <MenuItem value={20}>20</MenuItem>
+        </Select>
+        <FormHelperText>Posts per page</FormHelperText>
+      </FormControl>
+    );
+  };
+
+  const renderPageButtons = () => {
+    // draw prev and next page buttons if we're not looking at all posts
+    if (pageSize === 'all') {
+      return null;
+    } else {
+      return (
+        <Grid container justify="space-between">
+          <Grid item>
+            <Button
+              disabled={pageNum === 1}
+              variant="text"
+              onClick={handlePrevNext}
+              color="primary"
+              id="prevButton"
+            >
+              Previous posts
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              disabled={pageNum === props.postsStatus.pageCount}
+              variant="text"
+              onClick={handlePrevNext}
+              color="primary"
+              id="nextButton"
+            >
+              Next posts
+            </Button>
+          </Grid>
+        </Grid>
+      );
+    }
+  };
 
   const renderPost = (post) => {
     return (
@@ -70,18 +152,19 @@ const AllPosts = (props) => {
       </Box>
     );
   };
-  console.log(props);
   return (
     <Container maxWidth="md">
       <Grid container justify="space-between">
         <Grid item>
           <Typography variant="h6">All posts</Typography>
+          {renderPostsPerPage()}
         </Grid>
         <Grid item>
           <PostModal />
         </Grid>
       </Grid>
       {props.posts.map((post) => renderPost(post))}
+      {renderPageButtons()}
     </Container>
   );
 };
@@ -89,13 +172,14 @@ const AllPosts = (props) => {
 const mapStateToProps = (state) => {
   return {
     posts: state.posts,
+    postsStatus: state.postsStatus,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPosts: () => {
-      dispatch(fetchPosts());
+    fetchPosts: (pageSize, pageNum) => {
+      dispatch(fetchPosts(pageSize, pageNum));
     },
     submitPost: (newPost) => {
       dispatch(submitPost(newPost));
