@@ -14,9 +14,9 @@ const PostsReducer = (state = [], action) => {
     //     post: action.payload,
     //   };
 
-    case ActionTypes.ADD_POSTS:
+    case ActionTypes.SET_POSTS:
       // load posts into state from DB
-      return action.payload;
+      return action.payload.posts;
 
     case ActionTypes.NEW_POST:
       return [action.payload, ...state];

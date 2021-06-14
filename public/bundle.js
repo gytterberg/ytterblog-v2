@@ -21785,7 +21785,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _components_MainComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/MainComponent */ "./client/components/MainComponent.js");
+/* harmony import */ var _components_Main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Main */ "./client/components/Main.js");
 /* harmony import */ var _redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./redux */ "./client/redux/index.js");
 // import './App.css';
 
@@ -21795,25 +21795,22 @@ __webpack_require__.r(__webpack_exports__);
 
 const store = (0,_redux__WEBPACK_IMPORTED_MODULE_3__.default)();
 
-class App extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      className: "App"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_1__.Provider, {
-      store: store
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainComponent__WEBPACK_IMPORTED_MODULE_2__.default, null))));
-  }
-
-}
+const App = () => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "App"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_1__.Provider, {
+    store: store
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Main__WEBPACK_IMPORTED_MODULE_2__.default, null))));
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
 /***/ }),
 
-/***/ "./client/components/AboutComponent.js":
-/*!*********************************************!*\
-  !*** ./client/components/AboutComponent.js ***!
-  \*********************************************/
+/***/ "./client/components/About.js":
+/*!************************************!*\
+  !*** ./client/components/About.js ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21973,10 +21970,10 @@ class About extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
 
 /***/ }),
 
-/***/ "./client/components/AllPostsComponent.js":
-/*!************************************************!*\
-  !*** ./client/components/AllPostsComponent.js ***!
-  \************************************************/
+/***/ "./client/components/AllPosts.js":
+/*!***************************************!*\
+  !*** ./client/components/AllPosts.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21988,7 +21985,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _redux_ActionCreators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/ActionCreators */ "./client/redux/ActionCreators.js");
 /* harmony import */ var _PostCreateEditDialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PostCreateEditDialog */ "./client/components/PostCreateEditDialog.js");
-/* harmony import */ var _LoadingComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LoadingComponent */ "./client/components/LoadingComponent.js");
+/* harmony import */ var _Loading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Loading */ "./client/components/Loading.js");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Card/Card.js");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/CardActionArea/CardActionArea.js");
@@ -22083,10 +22080,10 @@ const mapDispatchToProps = dispatch => {
 
 /***/ }),
 
-/***/ "./client/components/ContactComponent.js":
-/*!***********************************************!*\
-  !*** ./client/components/ContactComponent.js ***!
-  \***********************************************/
+/***/ "./client/components/Contact.js":
+/*!**************************************!*\
+  !*** ./client/components/Contact.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22120,10 +22117,10 @@ class About extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
 
 /***/ }),
 
-/***/ "./client/components/FooterComponent.js":
-/*!**********************************************!*\
-  !*** ./client/components/FooterComponent.js ***!
-  \**********************************************/
+/***/ "./client/components/Footer.js":
+/*!*************************************!*\
+  !*** ./client/components/Footer.js ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22189,10 +22186,10 @@ const Footer = () => {
 
 /***/ }),
 
-/***/ "./client/components/HeaderComponent.js":
-/*!**********************************************!*\
-  !*** ./client/components/HeaderComponent.js ***!
-  \**********************************************/
+/***/ "./client/components/Header.js":
+/*!*************************************!*\
+  !*** ./client/components/Header.js ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22262,7 +22259,8 @@ const Header = props => {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_1__.default, {
     className: classes.header
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_2__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_3__.default, {
-    value: location.pathname,
+    value: location.pathname.replace(/\/\d+/g, '') // strip out url parameters ie /blog/19 => /blog
+    ,
     indicatorColor: "secondary",
     centered: true,
     classes: {
@@ -22291,10 +22289,10 @@ const Header = props => {
 
 /***/ }),
 
-/***/ "./client/components/HomeComponent.js":
-/*!********************************************!*\
-  !*** ./client/components/HomeComponent.js ***!
-  \********************************************/
+/***/ "./client/components/Home.js":
+/*!***********************************!*\
+  !*** ./client/components/Home.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22315,10 +22313,10 @@ const Home = () => {
 
 /***/ }),
 
-/***/ "./client/components/JumbotronComponent.js":
-/*!*************************************************!*\
-  !*** ./client/components/JumbotronComponent.js ***!
-  \*************************************************/
+/***/ "./client/components/Jumbotron.js":
+/*!****************************************!*\
+  !*** ./client/components/Jumbotron.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22399,10 +22397,10 @@ const Photojumbo = props => {
 
 /***/ }),
 
-/***/ "./client/components/LoadingComponent.js":
-/*!***********************************************!*\
-  !*** ./client/components/LoadingComponent.js ***!
-  \***********************************************/
+/***/ "./client/components/Loading.js":
+/*!**************************************!*\
+  !*** ./client/components/Loading.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22425,10 +22423,10 @@ const Loading = () => {
 
 /***/ }),
 
-/***/ "./client/components/MainComponent.js":
-/*!********************************************!*\
-  !*** ./client/components/MainComponent.js ***!
-  \********************************************/
+/***/ "./client/components/Main.js":
+/*!***********************************!*\
+  !*** ./client/components/Main.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22438,14 +22436,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _HeaderComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HeaderComponent */ "./client/components/HeaderComponent.js");
-/* harmony import */ var _FooterComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FooterComponent */ "./client/components/FooterComponent.js");
-/* harmony import */ var _HomeComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./HomeComponent */ "./client/components/HomeComponent.js");
-/* harmony import */ var _AllPostsComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AllPostsComponent */ "./client/components/AllPostsComponent.js");
-/* harmony import */ var _SinglePostComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SinglePostComponent */ "./client/components/SinglePostComponent.js");
-/* harmony import */ var _ContactComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ContactComponent */ "./client/components/ContactComponent.js");
-/* harmony import */ var _AboutComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./AboutComponent */ "./client/components/AboutComponent.js");
-/* harmony import */ var _JumbotronComponent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./JumbotronComponent */ "./client/components/JumbotronComponent.js");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header */ "./client/components/Header.js");
+/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Footer */ "./client/components/Footer.js");
+/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Home */ "./client/components/Home.js");
+/* harmony import */ var _AllPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AllPosts */ "./client/components/AllPosts.js");
+/* harmony import */ var _SinglePost__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SinglePost */ "./client/components/SinglePost.js");
+/* harmony import */ var _Contact__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Contact */ "./client/components/Contact.js");
+/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./About */ "./client/components/About.js");
+/* harmony import */ var _Jumbotron__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Jumbotron */ "./client/components/Jumbotron.js");
 /* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Container */ "./node_modules/@material-ui/core/esm/Container/Container.js");
 
 
@@ -22463,21 +22461,21 @@ __webpack_require__.r(__webpack_exports__);
 const Main = props => {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_9__.default, {
     maxWidth: "lg"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_HeaderComponent__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_JumbotronComponent__WEBPACK_IMPORTED_MODULE_8__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Switch, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Jumbotron__WEBPACK_IMPORTED_MODULE_8__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Switch, {
     location: props.location
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
     path: "/home",
-    component: _HomeComponent__WEBPACK_IMPORTED_MODULE_3__.default
+    component: _Home__WEBPACK_IMPORTED_MODULE_3__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
     exact: true,
     path: "/blog",
-    component: (0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.withRouter)(_AllPostsComponent__WEBPACK_IMPORTED_MODULE_4__.default)
+    component: (0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.withRouter)(_AllPosts__WEBPACK_IMPORTED_MODULE_4__.default)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
     path: "/blog/:postId",
-    component: (0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.withRouter)(_SinglePostComponent__WEBPACK_IMPORTED_MODULE_5__.default)
+    component: (0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.withRouter)(_SinglePost__WEBPACK_IMPORTED_MODULE_5__.default)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Redirect, {
     to: "/home"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FooterComponent__WEBPACK_IMPORTED_MODULE_2__.default, null)));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Footer__WEBPACK_IMPORTED_MODULE_2__.default, null)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Main);
@@ -22597,13 +22595,13 @@ const PostDeleteDialog = props => {
   const DisplayButton = () => {
     if (props.edit) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
-        variant: "link",
+        variant: "text",
         color: "primary",
         onClick: handleClickOpen
       }, "Edit post");
     } else {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
-        variant: "contained",
+        variant: "text",
         color: "primary",
         onClick: handleClickOpen
       }, "Add post");
@@ -22769,7 +22767,7 @@ const PostDeleteDialog = props => {
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
-    variant: "link",
+    variant: "text",
     color: "primary",
     onClick: handleClickOpen
   }, "Delete post"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
@@ -22819,10 +22817,10 @@ const mapDispatchToProps = dispatch => {
 
 /***/ }),
 
-/***/ "./client/components/SinglePostComponent.js":
-/*!**************************************************!*\
-  !*** ./client/components/SinglePostComponent.js ***!
-  \**************************************************/
+/***/ "./client/components/SinglePost.js":
+/*!*****************************************!*\
+  !*** ./client/components/SinglePost.js ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22912,9 +22910,10 @@ const mapDispatchToProps = dispatch => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "postsLoading": () => (/* binding */ postsLoading),
-/* harmony export */   "addPosts": () => (/* binding */ addPosts),
+/* harmony export */   "setPosts": () => (/* binding */ setPosts),
+/* harmony export */   "postsLoadingSuccess": () => (/* binding */ postsLoadingSuccess),
 /* harmony export */   "postsLoadingFailed": () => (/* binding */ postsLoadingFailed),
-/* harmony export */   "addPost": () => (/* binding */ addPost),
+/* harmony export */   "setPost": () => (/* binding */ setPost),
 /* harmony export */   "insertNewPost": () => (/* binding */ insertNewPost),
 /* harmony export */   "fetchPosts": () => (/* binding */ fetchPosts),
 /* harmony export */   "fetchPost": () => (/* binding */ fetchPost),
@@ -22937,16 +22936,19 @@ __webpack_require__.r(__webpack_exports__);
 const postsLoading = () => ({
   type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POSTS_LOADING
 });
-const addPosts = posts => ({
-  type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.ADD_POSTS,
+const setPosts = posts => ({
+  type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.SET_POSTS,
   payload: posts
 });
-const postsLoadingFailed = errmess => ({
-  type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POSTS_LOADING_FAILED,
-  payload: errmess
+const postsLoadingSuccess = () => ({
+  type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POSTS_LOADING_SUCCESS
 });
-const addPost = post => ({
-  type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.ADD_POST,
+const postsLoadingFailed = error => ({
+  type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POSTS_LOADING_FAILED,
+  payload: error
+});
+const setPost = post => ({
+  type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.SET_POST,
   payload: post
 });
 const insertNewPost = post => ({
@@ -22965,10 +22967,10 @@ const fetchPosts = () =>
     (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.xsrfHeaderName) = 'X-CSRFToken';
 
     try {
-      const {
-        posts
-      } = (await axios__WEBPACK_IMPORTED_MODULE_1___default().get(url)).data;
-      dispatch(addPosts(posts));
+      const postsData = (await axios__WEBPACK_IMPORTED_MODULE_1___default().get(url)).data;
+      console.log('#############');
+      console.log(postsData);
+      dispatch(setPosts(postsData));
     } catch (err) {
       dispatch(postsLoadingFailed(err.message));
       console.log(err);
@@ -22981,7 +22983,7 @@ const fetchPost = postId => {
       const {
         data: post
       } = await axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/posts/".concat(postId));
-      dispatch(addPost(post));
+      dispatch(setPost(post));
     } catch (err) {
       console.log(err);
     }
@@ -22989,9 +22991,9 @@ const fetchPost = postId => {
 }; // post submission ===============================
 // action creators
 
-const postCreationFailed = errmess => ({
+const postCreationFailed = error => ({
   type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POST_CREATION_FAILED,
-  payload: errmess
+  payload: error
 }); // thunk creators
 
 const submitPost = newPost => {
@@ -23021,9 +23023,9 @@ const postEdited = post => ({
   type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POST_EDITED,
   payload: post
 });
-const postEditFailed = errmess => ({
+const postEditFailed = error => ({
   type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POST_EDIT_FAILED,
-  payload: errmess
+  payload: error
 }); // thunk creators
 
 const editPost = post => {
@@ -23045,8 +23047,6 @@ const editPost = post => {
         body: post.body,
         user: post.user
       }, config);
-      console.log('##########################');
-      console.log(response);
       dispatch(postEdited(response));
     } catch (err) {
       dispatch(postEditFailed(err.message));
@@ -23059,9 +23059,9 @@ const postDeleted = post => ({
   type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POST_DELETED,
   payload: post
 });
-const postDeleteFailed = errmess => ({
+const postDeleteFailed = error => ({
   type: _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POST_DELETE_FAILED,
-  payload: errmess
+  payload: error
 }); // action creators
 // thunk creators
 
@@ -23094,12 +23094,13 @@ const deletePost = postId => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ADD_POST": () => (/* binding */ ADD_POST),
-/* harmony export */   "ADD_POSTS": () => (/* binding */ ADD_POSTS),
+/* harmony export */   "SET_POST": () => (/* binding */ SET_POST),
+/* harmony export */   "SET_POSTS": () => (/* binding */ SET_POSTS),
 /* harmony export */   "NEW_POST": () => (/* binding */ NEW_POST),
 /* harmony export */   "EDIT_POST": () => (/* binding */ EDIT_POST),
 /* harmony export */   "DELETE_POST": () => (/* binding */ DELETE_POST),
 /* harmony export */   "POSTS_LOADING": () => (/* binding */ POSTS_LOADING),
+/* harmony export */   "POSTS_LOADING_SUCCESS": () => (/* binding */ POSTS_LOADING_SUCCESS),
 /* harmony export */   "POSTS_LOADING_FAILED": () => (/* binding */ POSTS_LOADING_FAILED),
 /* harmony export */   "POST_CREATION_FAILED": () => (/* binding */ POST_CREATION_FAILED),
 /* harmony export */   "POST_EDIT_FAILED": () => (/* binding */ POST_EDIT_FAILED),
@@ -23107,12 +23108,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "POST_EDITED": () => (/* binding */ POST_EDITED),
 /* harmony export */   "POST_DELETE_FAILED": () => (/* binding */ POST_DELETE_FAILED)
 /* harmony export */ });
-const ADD_POST = 'ADD_POST';
-const ADD_POSTS = 'ADD_POSTS';
+const SET_POST = 'SET_POST';
+const SET_POSTS = 'SET_POSTS';
 const NEW_POST = 'NEW_POST';
 const EDIT_POST = 'EDIT_POST';
 const DELETE_POST = 'DELETE_POST';
 const POSTS_LOADING = 'POSTS_LOADING';
+const POSTS_LOADING_SUCCESS = 'POSTS_LOADING_SUCCESS';
 const POSTS_LOADING_FAILED = 'POSTS_LOADING_FAILED';
 const POST_CREATION_FAILED = 'POST_CREATION_FAILED';
 const POST_EDIT_FAILED = 'POST_EDIT_FAILED';
@@ -23142,8 +23144,7 @@ const PostsReducer = function PostsReducer() {
   let action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.ADD_POST:
-      // should be called set post
+    case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.SET_POST:
       return action.payload;
 
     case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POST_EDITED:
@@ -23221,9 +23222,9 @@ const PostsReducer = function PostsReducer() {
     //     errMess: null,
     //     post: action.payload,
     //   };
-    case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.ADD_POSTS:
+    case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.SET_POSTS:
       // load posts into state from DB
-      return action.payload;
+      return action.payload.posts;
 
     case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.NEW_POST:
       return [action.payload, ...state];
@@ -23300,84 +23301,88 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  /// these are 'Reducers' for the blog posts
 /// these connect action creators with action types
 
-const PostsReducer = function PostsReducer() {
+const PostsStatusReducer = function PostsStatusReducer() {
   let state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
     loading: false,
-    errMess: null
+    error: null,
+    pageCount: null,
+    pageSize: null,
+    currentPage: null
   };
   let action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    // case ActionTypes.ADD_POST:
-    //   /// non analogous fix this
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     errMess: null,
-    //     post: action.payload,
-    //   };
-    // case ActionTypes.ADD_POSTS:
-    //   // load posts into state from DB
-    //   return {
-    //     ...state,
-    //     posts: action.payload,
-    //   };
-    // case ActionTypes.EDIT_POST:
-    //   // edit post
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     errMess: null,
-    //     post: action.payload,
-    //   };
-    // case ActionTypes.DELETE_POST:
-    //   // delete post
-    //   return { ...state, loading: false, errMess: null, posts: [] };
+    case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.SET_POST:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: null
+      });
+
+    case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.SET_POSTS:
+      // load posts into state from DB
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: null,
+        pageCount: action.payload.pageCount,
+        pageSize: action.payload.pageSize,
+        currentPage: action.payload.currentPage
+      });
+
     case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POSTS_LOADING:
       // currently loading
       return _objectSpread(_objectSpread({}, state), {}, {
         loading: true,
-        errMess: null
+        error: null
       });
 
     case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POSTS_LOADING_FAILED:
       // failed to load posts, return an error message
       return _objectSpread(_objectSpread({}, state), {}, {
         loading: false,
-        errMess: action.payload
+        error: action.payload
       });
-    // case ActionTypes.POST_CREATION_FAILED:
-    //   // failed to create post
-    //   return { ...state, loading: false, errMess: action.payload, posts: [] };
-    // case ActionTypes.POST_EDIT_FAILED:
-    //   // failed to edit post
-    //   return { ...state, loading: false, errMess: action.payload, post: [] };
-    // case ActionTypes.POST_DELETED:
-    //   // deleted
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     errMess: null,
-    //     post: action.payload,
-    //   };
-    // case ActionTypes.POST_EDITED:
-    //   // edited
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     errMess: null,
-    //     post: action.payload,
-    //   };
-    // case ActionTypes.POST_DELETE_FAILED:
-    //   // delete failed
-    //   return { ...state, loading: false, errMess: action.payload, post: [] };
+
+    case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POST_CREATION_FAILED:
+      // failed to create post
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: action.payload
+      });
+
+    case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POST_EDIT_FAILED:
+      // failed to edit post
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: action.payload
+      });
+
+    case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POST_DELETED:
+      // deleted
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: null
+      });
+
+    case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POST_EDITED:
+      // edited
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: null
+      });
+
+    case _ActionTypes__WEBPACK_IMPORTED_MODULE_0__.POST_DELETE_FAILED:
+      // delete failed
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: action.payload
+      });
 
     default:
       return state;
   }
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PostsReducer);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PostsStatusReducer);
 
 /***/ }),
 

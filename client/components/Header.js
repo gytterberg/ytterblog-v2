@@ -50,7 +50,7 @@ const Header = (props) => {
       <AppBar className={classes.header}>
         <Toolbar>
           <Tabs
-            value={location.pathname}
+            value={location.pathname.replace(/\/\d+/g, '')} // strip out url parameters ie /blog/19 => /blog
             indicatorColor="secondary"
             centered
             classes={{ indicator: classes.indicator }}

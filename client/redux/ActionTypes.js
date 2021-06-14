@@ -1,6 +1,6 @@
-export const ADD_POST = 'ADD_POST';
+export const SET_POST = 'SET_POST';
 
-export const ADD_POSTS = 'ADD_POSTS';
+export const SET_POSTS = 'SET_POSTS';
 
 export const NEW_POST = 'NEW_POST';
 
@@ -9,6 +9,8 @@ export const EDIT_POST = 'EDIT_POST';
 export const DELETE_POST = 'DELETE_POST';
 
 export const POSTS_LOADING = 'POSTS_LOADING';
+
+export const POSTS_LOADING_SUCCESS = 'POSTS_LOADING_SUCCESS';
 
 export const POSTS_LOADING_FAILED = 'POSTS_LOADING_FAILED';
 

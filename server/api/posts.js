@@ -32,8 +32,9 @@ router.get('/', async (req, res, next) => {
     }
 
     // given the total row count and pagesize, we can get the number of pages
-    result.pagesTotal = Math.ceil(result.count / req.query.pageSize);
+    result.pageCount = Math.ceil(result.count / req.query.pageSize);
     result.currentPage = Number(req.query.pageNum);
+    result.pageSize = Number(req.query.pageSize);
 
     // rename rows to posts
     result.posts = result.rows;

@@ -51,7 +51,7 @@ const PostDeleteDialog = (props) => {
 
   return (
     <>
-      <Button variant="link" color="primary" onClick={handleClickOpen}>
+      <Button variant="text" color="primary" onClick={handleClickOpen}>
         Delete post
       </Button>
       <Dialog open={open} onClose={handleClose}>

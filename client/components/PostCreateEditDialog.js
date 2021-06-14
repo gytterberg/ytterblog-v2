@@ -86,13 +86,13 @@ const PostDeleteDialog = (props) => {
   const DisplayButton = () => {
     if (props.edit) {
       return (
-        <Button variant="link" color="primary" onClick={handleClickOpen}>
+        <Button variant="text" color="primary" onClick={handleClickOpen}>
           Edit post
         </Button>
       );
     } else {
       return (
-        <Button variant="contained" color="primary" onClick={handleClickOpen}>
+        <Button variant="text" color="primary" onClick={handleClickOpen}>
           Add post
         </Button>
       );

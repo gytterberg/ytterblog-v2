@@ -10,7 +10,7 @@ import {
 } from '../redux/ActionCreators';
 
 import PostModal from './PostCreateEditDialog';
-import Loading from './LoadingComponent';
+import Loading from './Loading';
 import {
   Box,
   Button,

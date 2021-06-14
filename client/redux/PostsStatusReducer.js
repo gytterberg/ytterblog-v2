@@ -3,78 +3,74 @@ import * as ActionTypes from './ActionTypes';
 /// these are 'Reducers' for the blog posts
 /// these connect action creators with action types
 
-const PostsReducer = (state = { loading: false, errMess: null }, action) => {
+const PostsStatusReducer = (
+  state = {
+    loading: false,
+    error: null,
+    pageCount: null,
+    pageSize: null,
+    currentPage: null,
+  },
+  action
+) => {
   switch (action.type) {
-    // case ActionTypes.ADD_POST:
-    //   /// non analogous fix this
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     errMess: null,
-    //     post: action.payload,
-    //   };
+    case ActionTypes.SET_POST:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
 
-    // case ActionTypes.ADD_POSTS:
-    //   // load posts into state from DB
-    //   return {
-    //     ...state,
-    //     posts: action.payload,
-    //   };
-
-    // case ActionTypes.EDIT_POST:
-    //   // edit post
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     errMess: null,
-    //     post: action.payload,
-    //   };
-
-    // case ActionTypes.DELETE_POST:
-    //   // delete post
-    //   return { ...state, loading: false, errMess: null, posts: [] };
+    case ActionTypes.SET_POSTS:
+      // load posts into state from DB
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        pageCount: action.payload.pageCount,
+        pageSize: action.payload.pageSize,
+        currentPage: action.payload.currentPage,
+      };
 
     case ActionTypes.POSTS_LOADING:
       // currently loading
-      return { ...state, loading: true, errMess: null };
+      return { ...state, loading: true, error: null };
 
     case ActionTypes.POSTS_LOADING_FAILED:
       // failed to load posts, return an error message
-      return { ...state, loading: false, errMess: action.payload };
+      return { ...state, loading: false, error: action.payload };
 
-    // case ActionTypes.POST_CREATION_FAILED:
-    //   // failed to create post
-    //   return { ...state, loading: false, errMess: action.payload, posts: [] };
+    case ActionTypes.POST_CREATION_FAILED:
+      // failed to create post
+      return { ...state, loading: false, error: action.payload };
 
-    // case ActionTypes.POST_EDIT_FAILED:
-    //   // failed to edit post
-    //   return { ...state, loading: false, errMess: action.payload, post: [] };
+    case ActionTypes.POST_EDIT_FAILED:
+      // failed to edit post
+      return { ...state, loading: false, error: action.payload };
 
-    // case ActionTypes.POST_DELETED:
-    //   // deleted
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     errMess: null,
-    //     post: action.payload,
-    //   };
+    case ActionTypes.POST_DELETED:
+      // deleted
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
 
-    // case ActionTypes.POST_EDITED:
-    //   // edited
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     errMess: null,
-    //     post: action.payload,
-    //   };
+    case ActionTypes.POST_EDITED:
+      // edited
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
 
-    // case ActionTypes.POST_DELETE_FAILED:
-    //   // delete failed
-    //   return { ...state, loading: false, errMess: action.payload, post: [] };
+    case ActionTypes.POST_DELETE_FAILED:
+      // delete failed
+      return { ...state, loading: false, error: action.payload };
 
     default:
       return state;
   }
 };
 
-export default PostsReducer;
+export default PostsStatusReducer;

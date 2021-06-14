@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
-import Header from './HeaderComponent';
-import Footer from './FooterComponent';
-import Home from './HomeComponent';
-import AllPosts from './AllPostsComponent';
-import SinglePost from './SinglePostComponent';
-import Contact from './ContactComponent';
-import About from './AboutComponent';
-import Photojumbo from './JumbotronComponent';
+import Header from './Header';
+import Footer from './Footer';
+import Home from './Home';
+import AllPosts from './AllPosts';
+import SinglePost from './SinglePost';
+import Contact from './Contact';
+import About from './About';
+import Photojumbo from './Jumbotron';
 import { Typography } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 

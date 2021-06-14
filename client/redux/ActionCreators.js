@@ -9,18 +9,22 @@ export const postsLoading = () => ({
   type: ActionTypes.POSTS_LOADING,
 });
 
-export const addPosts = (posts) => ({
-  type: ActionTypes.ADD_POSTS,
+export const setPosts = (posts) => ({
+  type: ActionTypes.SET_POSTS,
   payload: posts,
 });
 
-export const postsLoadingFailed = (errmess) => ({
-  type: ActionTypes.POSTS_LOADING_FAILED,
-  payload: errmess,
+export const postsLoadingSuccess = () => ({
+  type: ActionTypes.POSTS_LOADING_SUCCESS,
 });
 
-export const addPost = (post) => ({
-  type: ActionTypes.ADD_POST,
+export const postsLoadingFailed = (error) => ({
+  type: ActionTypes.POSTS_LOADING_FAILED,
+  payload: error,
+});
+
+export const setPost = (post) => ({
+  type: ActionTypes.SET_POST,
   payload: post,
 });
 
@@ -43,8 +47,10 @@ export const fetchPosts = (/*pageSize, pageNum*/) => {
     axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
     try {
-      const { posts } = (await axios.get(url)).data;
-      dispatch(addPosts(posts));
+      const postsData = (await axios.get(url)).data;
+      console.log('#############');
+      console.log(postsData);
+      dispatch(setPosts(postsData));
     } catch (err) {
       dispatch(postsLoadingFailed(err.message));
       console.log(err);
@@ -56,7 +62,7 @@ export const fetchPost = (postId) => {
   return async (dispatch) => {
     try {
       const { data: post } = await axios.get(`/api/posts/${postId}`);
-      dispatch(addPost(post));
+      dispatch(setPost(post));
     } catch (err) {
       console.log(err);
     }
@@ -66,9 +72,9 @@ export const fetchPost = (postId) => {
 // post submission ===============================
 
 // action creators
-export const postCreationFailed = (errmess) => ({
+export const postCreationFailed = (error) => ({
   type: ActionTypes.POST_CREATION_FAILED,
-  payload: errmess,
+  payload: error,
 });
 
 // thunk creators
@@ -104,9 +110,9 @@ export const postEdited = (post) => ({
   payload: post,
 });
 
-export const postEditFailed = (errmess) => ({
+export const postEditFailed = (error) => ({
   type: ActionTypes.POST_EDIT_FAILED,
-  payload: errmess,
+  payload: error,
 });
 
 // thunk creators
@@ -128,8 +134,6 @@ export const editPost = (post) => {
         { title: post.title, body: post.body, user: post.user },
         config
       );
-      console.log('##########################');
-      console.log(response);
       dispatch(postEdited(response));
     } catch (err) {
       dispatch(postEditFailed(err.message));
@@ -145,9 +149,9 @@ export const postDeleted = (post) => ({
   payload: post,
 });
 
-export const postDeleteFailed = (errmess) => ({
+export const postDeleteFailed = (error) => ({
   type: ActionTypes.POST_DELETE_FAILED,
-  payload: errmess,
+  payload: error,
 });
 
 // action creators

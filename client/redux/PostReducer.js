@@ -5,8 +5,7 @@ import * as ActionTypes from './ActionTypes';
 
 const PostsReducer = (state = {}, action) => {
   switch (action.type) {
-    case ActionTypes.ADD_POST:
-      // should be called set post
+    case ActionTypes.SET_POST:
       return action.payload;
 
     case ActionTypes.POST_EDITED:
