@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import {
   Box,
@@ -9,6 +10,7 @@ import {
   CardHeader,
   Typography,
   Grid,
+  Button,
 } from '@material-ui/core';
 
 import { fetchPost } from '../redux/ActionCreators';
@@ -18,7 +20,46 @@ import PostDeleteDialog from './PostDeleteDialog';
 const SinglePost = (props) => {
   useEffect(() => {
     props.fetchPost(props.match.params.postId);
-  }, []);
+  }, [props.location]);
+
+  const handlePrevNext = (event) => {
+    // push requested post into history
+    if (event.target.outerText === 'PREVIOUS POST') {
+      console.log('Clicked prev button');
+      props.history.push(`${props.post.prev}`);
+    } else if (event.target.outerText === 'NEXT POST') {
+      props.history.push(`${props.post.next}`);
+    }
+  };
+
+  // draw next/prev buttons
+  const renderPageButtons = () => {
+    // draw prev and next page buttons if we're not looking at all posts
+    return (
+      <Grid container justify="space-between">
+        <Grid item>
+          <Button
+            disabled={props.post.prev === null}
+            variant="text"
+            onClick={handlePrevNext}
+            color="primary"
+          >
+            Previous post
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            disabled={props.post.next === null}
+            variant="text"
+            onClick={handlePrevNext}
+            color="primary"
+          >
+            Next post
+          </Button>
+        </Grid>
+      </Grid>
+    );
+  };
 
   if (typeof props.post.id === 'undefined') {
     return <>Loading</>;
@@ -51,6 +92,7 @@ const SinglePost = (props) => {
             </Grid>
           </CardActions>
         </Card>
+        {renderPageButtons()}
       </Box>
     );
   }
@@ -70,4 +112,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SinglePost);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SinglePost)
+);

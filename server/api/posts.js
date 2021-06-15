@@ -1,5 +1,7 @@
 const express = require('express');
 const Post = require('../db/post');
+const { Op } = require('sequelize');
+const e = require('express');
 const router = express.Router();
 
 ////// matches GET requests to /api/posts/
@@ -51,16 +53,37 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   // find a single post and return it
+  // along with next and prev post ids
   try {
-    const result = await Post.findByPk(req.params.id, { raw: true });
-    if (result === null) {
-      throw new Error('Post not found');
+    // console.log('#######################3');
+    // console.log(req);
+    const post = await Post.findByPk(Number(req.params.id), { raw: true });
+
+    if (post === null) {
+      // we're just looking for the post with ID. send 404 error
+      const err = new Error('Post not found');
+      err.status = 404;
+      throw err;
+    } else {
+      // we found a post
+      // get the adjacent posts
+      const prev = await Post.findOne({
+        where: { createdAt: { [Op.lt]: post.createdAt } },
+        limit: 1,
+        order: [['createdAt', 'DESC']],
+        raw: true,
+      });
+      const next = await Post.findOne({
+        where: { createdAt: { [Op.gt]: post.createdAt } },
+        limit: 1,
+        order: [['createdAt', 'ASC']],
+        raw: true,
+      });
+      post.prev = prev === null ? null : prev.id;
+      post.next = next === null ? null : next.id;
+      res.json(post);
     }
-    console.log('In api, result: ');
-    console.log(result);
-    res.json(result);
   } catch (error) {
-    error.status = 404;
     next(error);
   }
 });
